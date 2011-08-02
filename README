@@ -1,0 +1,42 @@
+MYSQL2PDO
+
+This project contains only one small file - DBAdapter.php, and one  small class - MySQL.
+Don't ask me why do the file and the class have different names. They are as they are.. you can rename them if you want :)
+
+Class was written to help migrate extremely big projet from raw mysql functions to raw PDO, and, later to ORM.
+
+This class covers the following mysql functions:
+
+mysql_connect
+mysql_pconnect
+mysql_close
+mysql_select_db
+mysql_query
+mysql_error
+mysql_errno
+mysql_affected_rows
+mysql_insert_id
+mysql_num_rows
+mysql_fetch_row
+mysql_fetch_array
+mysql_fetch_assoc
+mysql_fetch_object
+mysql_data_seek
+mysql_free_result
+mysql_escape_string
+mysql_real_escape_string
+
+The whole class is a big ugly hack, but it works in some way.
+
+How to use it:
+
+0. Create a Backup of your project!
+1. Include this class in some place where it will be visible and can be used by another classes and functions.
+2. Do batch replace in your project in all needed files: replace "mysql_" by "MySQL::".
+3. Go to browser and ensure that your project still runs and nothing was broken (it will still run on raw functions).
+4. To switch your project to PDO define the following constant somewhere before using mysql: define("MYSQL_DB_CON_TYPE", MySQL::CON_PDO);
+
+If your site still works - then update was successful and you're running on PDO :)
+
+Thanks,
+Vitaly.
